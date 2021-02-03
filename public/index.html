@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="theme-color" content="#1d1d1d">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon3-32x32.png">
+    <title>OnlineTest</title>
+</head>
+<body>
+    <noscript>
+        你必须启用 JavaScript 才能展示本网站。
+    </noscript>
+    <script type='text/javascript' src='pdfmake.js'></script>
+    <script type='text/javascript' src='vfs_fonts.js'></script>
+    <script>
+        //  <link rel="stylesheet" type="text/css" href="./iconfont.css">
+        if (window.ActiveXObject || 'ActiveXObject' in window) {
+            var script = document.createElement('script');
+            // 由 polyfill.io 提供的代码
+            script.src = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch,Object.entries,Array.prototype.find&flags=gated';
+            document.body.appendChild(script);
+        }
+    </script>
+    <div id="root"></div>
+</body>
+</html>

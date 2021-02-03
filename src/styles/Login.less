@@ -1,0 +1,33 @@
+.login {
+    height: 100%;
+    min-height: @app-min-height;
+    .top-bg {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        min-height: inherit;
+        background-image: url(../resources/login-bg.png);
+        // background-size: cover;
+    }
+    .login-container {
+        max-width: 700px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        box-shadow: @dark-box-shadow-4px;
+        border-radius: 4px;
+        background: @white;
+        padding: 40px;
+        margin: auto;
+        .login-header {
+            text-align: center;
+            padding-bottom: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            .logo {
+                height: 144px;
+                width: 243px;
+            }
+        }
+    }
+}

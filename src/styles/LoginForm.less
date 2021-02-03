@@ -1,0 +1,68 @@
+.login-form {
+    background: transparent;
+    width: 100%; //344px;
+    max-width: 344px;
+    height: 163px;
+    margin: auto;
+    .ant-row {
+        height: 59px;
+        display: flex;
+    }
+    .ant-row > .ant-col {
+        float: left;
+    }
+    .ant-row .ant-col:nth-child(2) {
+        flex: 1;
+    }
+ 
+    .ant-form-item-label {
+        // font-family: 'PingFangSC-Medium';
+        font-weight: bold;
+        line-height: 39.9999px !important;
+        width: 70px;
+        & > label {
+            color: @black-65;
+        }
+    }
+    .ant-form-item-control-wrapper {
+        width: unset;
+    }
+    .ant-form-item {
+        margin-bottom: 0px;
+    }
+    .ant-form-explain {
+        font-size: 12px;
+        color: @orange;
+        letter-spacing: 0; 
+    }
+    .has-error {
+        .input_container {
+            &::after,
+            &::before {
+                border-bottom-color: @orange;
+            }
+            .placeholder {
+                color: @orange;
+            }
+        }
+    }
+
+    .login-footer {
+        font-weight: 500;
+        font-size: 16px;
+        text-align: right;
+        .login-button {
+            width: calc(100% - 70px);
+            border-radius: 4px;
+            padding: 6px 28px;
+            color: @white;
+            font-size: 16px;
+            height: auto;
+            border: none;
+            background: @primary-color;
+            &:not([disabled]):hover {
+                box-shadow: @dark-box-shadow-2px;
+            }
+        }
+    }
+}

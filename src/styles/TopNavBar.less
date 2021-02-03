@@ -1,0 +1,34 @@
+
+.nav-bar {
+    background: @blue-dark;
+    color: @white-70;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 24px;
+    position: relative;
+    z-index: 1;
+    .logo{
+        float: left;
+        .logo-icon {
+            height: 28px;
+            width: 28px;
+        }
+        .logo-text {
+            margin-left: 15px;
+        }
+    }
+    .right-btns {
+        float: right;
+        & > * {
+            margin: 0 26px 0 0;
+        }
+        & > .anticon {
+            font-size: 20px;
+        }
+    }
+}
+@media (max-width: 575px) {
+    .nav-bar .logo {
+        display: none;
+    }
+}
