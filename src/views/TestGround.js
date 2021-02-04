@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useReducer, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { BackTop, Button, Modal } from 'antd';
+import { BackTop, Button } from 'antd';
 import { prepareTest } from '../questionBank/testGenerator';
 import TestSection from '../components/TestSection';
 import CountDownIndicator from '../components/CountDownIndicator';
+import TestTrackModal from '../components/TestTrackModal';
 import { UPDATE_TEST_RESULT, UPDATE_USER_STATUS } from '../constant/ActionTypes';
 import { updateUser } from '../actions/user';
 
@@ -147,31 +148,13 @@ export default function TestGround() {
                         结束答题
                     </Button>
                 </div>
-                <Modal
-                    title={countDownTimeout ? '答题时间已用尽,您本次作答情况如下' : '您当前作答情况如下'}
-                    centered
-                    maskClosable={false}
-                    closable={!countDownTimeout}
+                <TestTrackModal 
+                    timeout={countDownTimeout}
                     visible={trackModalVisible}
+                    testTrack={testTrack}
                     onOk={handleFinishTest}
                     onCancel={handleCancel}
-                    footer={countDownTimeout ? [
-                       <Button key='save' type='primary' onClick={handleFinishTest}>
-                            确认提交
-                        </Button> 
-                        ]:[
-                            <Button key='back' onClick={(handleCancel)}>
-                                继续答题
-                            </Button>,
-                            <Button key='save' type='primary' onClick={handleFinishTest}>
-                                确认提交
-                            </Button>
-                        ]
-                    }
-                    >
-                    <p>已作答：{testTrack.finished} 道</p>
-                    <p className={'remain-questions ' + (testTrack.remain > 0 && 'warning')}>未作答：{testTrack.remain} 道</p>
-                </Modal>
+                />
                 <BackTop></BackTop>
             </div>
         </div>

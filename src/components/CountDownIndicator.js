@@ -8,7 +8,7 @@ import '../styles/CountDownIndicator.less';
 export default function CountDownIndicator({ countDownTime, onTimeout }) {
     const [countDown, setCountDown] = useState({minutes: 0, seconds: 0});
     const [fold, setFold] = useState(false);
-    const [autoExpand, setAutoExpand] = useState(false);
+    const [autoExpandFlag, setAutoExpandFlag] = useState(false);
 
     useEffect(() => {
         let maxTime = countDownTime * 60; // 以秒为计算颗粒
@@ -31,15 +31,17 @@ export default function CountDownIndicator({ countDownTime, onTimeout }) {
         });
     }, [countDownTime, onTimeout]);
     useEffect(() => {
-        if (fold && !autoExpand && countDown.minutes <= 3) {
-            setFold(false);
-            setAutoExpand(true);
+        if (!autoExpandFlag && countDown.minutes <= 3) {
+            setAutoExpandFlag(true);
+            if (fold) {
+                setFold(false);
+            }
         }
-    }, [countDown, autoExpand, fold]);
+    }, [countDown, autoExpandFlag, fold]);
 
     const handleClick = useCallback(() => {
         setFold(!fold);
-    },[setFold, fold]);
+    },[countDown, autoExpandFlag, fold]);
 
     return (
         <div className={'count-down-indicator ' + (fold ? 'fold' : '')} 
