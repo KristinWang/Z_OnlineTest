@@ -11,7 +11,7 @@ export default function CountDownIndicator({ countDownTime, onTimeout }) {
     const [autoExpandFlag, setAutoExpandFlag] = useState(false);
 
     useEffect(() => {
-        let maxTime = countDownTime * 60; // 以秒为计算颗粒
+        let maxTime = countDownTime * 60; // 以秒为计算粒度
         let timeCountDownInterval = setInterval(() => {
             --maxTime;
             if (maxTime >= 0) {

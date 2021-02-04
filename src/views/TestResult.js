@@ -32,54 +32,34 @@ export default function TestResult() {
         return scoresMap && Object.values(scoresMap).reduce((acc, score) => acc + (parseInt(score) ? 1 : 0), 0);
     },[scoresMap]);
     const onPrint = () => {
-
-        // const rowData = [];
-        // Object.entries(testResult).forEach((item, index) => {
-        //     rowData[index] = [];
-        //     tableExportHeaderKeys.forEach(keyConfig => {
-        //         rowData[index].push({
-        //             text: item[keyConfig.key],
-        //             style: keyConfig.style
-        //         });
-        //     });
-        // });
-        // const body = [
-        //     tableExportHeader,
-        //     ...rowData
-        // ];
         let contentMarginLeft = 200;
         let scoreMargin = totalScore < 10 ? 58 : (totalScore < 100 ? 68 : 78);
         const docDefinition = {
             pageSize: 'A4',
+            // margin: [100, 250, 0, 0],
             content: [
-                {text: '在线考试成绩单', style: 'title'},
+                {text: '全国药品监督管理局在线考试成绩单', style: 'title'},
                 {text: `${totalScore}分`, style: 'score'},
                 {text: `/(${fullPoint}分)`, style: 'fullscore'},
                 {text: `姓名：${user.username}`, style: 'name'},
                 {text: `日期：${moment().format('YYYY/MM/DD')}`, style: 'date'},
                 {text: `身份证号：${user.password}`, style: 'userIdentity'},
-                // {
-                //     style: 'tableBody',
-                //     table: {
-                //         headerRows: 1,
-                //         heights: [50],
-                //         body: body
-                //     }
-                // }
             ],
             styles: {
                 title: {
                     fontSize: 18,
                     bold: true,
                     font: '方正黑体简体',
-                    decoration: 'underline',
-                    margin: [contentMarginLeft, 250, 0, 0] // left top-margin right bottom
+                    // decoration: 'underline',
+                    alignment: 'center',
+                    margin: [0, 250, 0, 0] // left top-margin right bottom
                 },
                 score: {
                     fontSize: 18,
                     bold: true,
                     font: '方正黑体简体',
-                    margin: [contentMarginLeft + 30, 20, 0, 0]
+                    // decoration: 'underline',
+                    margin: [contentMarginLeft + 30, 30, 0, 0]
                 },
                 fullscore: {
                     fontSize: 10,
@@ -89,33 +69,18 @@ export default function TestResult() {
                 name: {
                     fontSize: 10,
                     font: '方正黑体简体',
-                    margin: [contentMarginLeft, 20, 0, 5]
+                    margin: [contentMarginLeft - 80, 30, 0, 5]
                 },
                 date: {
                     fontSize: 10,
                     font: '方正黑体简体',
-                    margin: [contentMarginLeft, 10, 0, 5]
+                    margin: [contentMarginLeft - 80, 10, 0, 5]
                 },
                 userIdentity: {
                     fontSize: 10,
                     font: '方正黑体简体',
-                    margin: [contentMarginLeft, 10, 0, 5]
+                    margin: [contentMarginLeft - 80, 10, 0, 5]
                 }
-                // tableBody: {
-                //     margin: [0, 5, 0, 15]
-                // },
-                // tableHeader: {
-                //     font: 'Roboto',
-                //     bold: true,
-                //     fontSize: 13,
-                //     color: 'black'
-                // },
-                // enStyle: {
-                //     font: 'Roboto'
-                // },
-                // zhStyle: {
-                //     font: '方正黑体简体'
-                // }
             }
         };
         const win = window.open('', '_blank');
