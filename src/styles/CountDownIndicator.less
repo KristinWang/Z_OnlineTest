@@ -1,0 +1,37 @@
+.count-down-indicator {
+    .ant-anchor-wrapper {
+        width: 120px;
+        position: fixed;
+        right: 5%;
+        background-color: @primary-color;
+        border-radius: 2px;
+        padding: 5px;
+        cursor: pointer;
+        text-align: center;
+        &:hover {
+            box-shadow: @dark-box-shadow-1px;
+        }
+        .count-down-time {
+            color: @white;
+        }
+        .count-down-title {
+            color: @white-70; 
+        }
+        .ant-anchor-ink {
+                height: 0;
+        }
+        .anticon-clock-circle {
+            margin-right: 3px;
+        }
+    }
+    &.fold .ant-anchor-wrapper {
+        width: 40px;
+        height: 45px;
+        overflow: hidden;
+        border-radius: 0 0 20px 20px;
+        padding: 10px;
+        .anticon-clock-circle {
+            color: @white; 
+        }
+    }
+}

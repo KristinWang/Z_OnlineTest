@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BackTop, Button, Modal } from 'antd';
 import { prepareTest } from '../questionBank/testGenerator';
 import TestSection from '../components/TestSection';
-import CountDownAnchor from '../components/CountDownAnchor';
+import CountDownIndicator from '../components/CountDownIndicator';
 import { UPDATE_TEST_RESULT, UPDATE_USER_STATUS } from '../constant/ActionTypes';
 import { updateUser } from '../actions/user';
 
@@ -127,7 +127,7 @@ export default function TestGround() {
     
     return (
         <div className='test-ground-wrapper'>
-            <CountDownAnchor countDownTime={countDownTime} onTimeout={handleTimeout} />
+            <CountDownIndicator countDownTime={countDownTime} onTimeout={handleTimeout} />
             <div className='test-container'>
                 <div className='test-statistic'>
                     <label>{`总分: ${fullPoint}分`}</label>
