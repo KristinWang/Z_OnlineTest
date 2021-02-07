@@ -36,7 +36,7 @@ export default function TestResult() {
         let scoreMargin = totalScore < 10 ? 58 : (totalScore < 100 ? 68 : 78);
         const docDefinition = {
             pageSize: 'A4',
-            // margin: [100, 250, 0, 0],
+            // pageMargins: [100, 250, 0, 0],
             content: [
                 {text: '全国药品监督管理局在线考试成绩单', style: 'title'},
                 {text: `${totalScore}分`, style: 'score'},
