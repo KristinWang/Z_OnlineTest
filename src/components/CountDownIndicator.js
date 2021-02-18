@@ -4,6 +4,7 @@ import { Anchor, notification  } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import '../styles/CountDownIndicator.less';
 
+const warningThreshold = 3; 
 // countDownTime 单位是分钟
 export default function CountDownIndicator({ countDownTime, onTimeout }) {
     const [countDown, setCountDown] = useState({minutes: 0, seconds: 0});
@@ -13,7 +14,7 @@ export default function CountDownIndicator({ countDownTime, onTimeout }) {
     const openNotification = () => {
         notification.warning({
             message: '交卷提醒',
-            description:<div><p>答题时间不足3分钟,请核对答题情况。</p><p>系统将在答题时间耗尽时自动提交。</p></div>
+            description:<div><p>{`答题时间不足${warningThreshold}分钟,请核对答题情况。`}</p><p>系统将在答题时间耗尽时自动提交。</p></div>
         });
     };
 
@@ -38,7 +39,7 @@ export default function CountDownIndicator({ countDownTime, onTimeout }) {
         });
     }, [countDownTime, onTimeout]);
     useEffect(() => {
-        if (!autoExpandFlag && countDown.minutes !== 0 && countDown.minutes <= 4) {
+        if (!autoExpandFlag && countDown.minutes !== 0 && countDown.minutes <= warningThreshold) {
             setAutoExpandFlag(true);
             if (fold) {
                 setFold(false);

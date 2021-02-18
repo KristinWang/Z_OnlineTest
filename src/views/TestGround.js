@@ -11,6 +11,7 @@ import { updateUser } from '../actions/user';
 
 import '../styles/TestGround.less';
 
+
 const GET_TEST_CONTENT = 'GET_TEST_CONTENT';
 const UPDATE_TEST_CONTENT = 'UPDATE_TEST_CONTENT';
 const INITIAL_TEST_CONTENT = {
@@ -134,15 +135,15 @@ export default function TestGround() {
                     <label>{`总分: ${fullPoint}分`}</label>
                     <label>{`时间: ${countDownTime}分钟`}</label>
                 </div>
-                {
-                    singleChoiceQ.length > 0 && <TestSection qType='singleChoice' questions={singleChoiceQ} onChange={handleChoiceChange} />
-                }
-                {
-                    multiChoiceQ.length > 0 && <TestSection qType='multiChoice' questions={multiChoiceQ} onChange={handleChoiceChange} />
-                }
-                {
-                    tfQ.length > 0 && <TestSection qType='tf' questions={tfQ} onChange={handleChoiceChange} />
-                }
+                    {
+                        singleChoiceQ.length > 0 && <TestSection qType='singleChoice' questions={singleChoiceQ} onChange={handleChoiceChange} />
+                    }
+                    {
+                        multiChoiceQ.length > 0 && <TestSection qType='multiChoice' questions={multiChoiceQ} onChange={handleChoiceChange} />
+                    }
+                    {
+                        tfQ.length > 0 && <TestSection qType='tf' questions={tfQ} onChange={handleChoiceChange} />
+                    }
                 <div className='footer'>
                     <Button className='submit-btn' type='primary' onClick={handlePreSubmit}>
                         结束答题
