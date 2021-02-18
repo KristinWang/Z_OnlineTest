@@ -69,17 +69,20 @@ export default function TestResult() {
                 name: {
                     fontSize: 10,
                     font: '方正黑体简体',
-                    margin: [contentMarginLeft - 80, 30, 0, 5]
+                    // alignment: 'center',
+                    margin: [contentMarginLeft - 18, 30, 0, 5]
                 },
                 date: {
                     fontSize: 10,
                     font: '方正黑体简体',
-                    margin: [contentMarginLeft - 80, 10, 0, 5]
+                    // alignment: 'center',
+                    margin: [contentMarginLeft - 18, 10, 0, 5]
                 },
                 userIdentity: {
                     fontSize: 10,
                     font: '方正黑体简体',
-                    margin: [contentMarginLeft - 80, 10, 0, 5]
+                    alignment: 'center',
+                    margin: [0, 10, 0, 5]
                 }
             }
         };
@@ -88,18 +91,16 @@ export default function TestResult() {
     }
     return (
         <div className='test-result-container'>
+            <p>恭喜您完成本次答题</p>
             <div className='content'>
-                <div className='result'>
-                    <p>恭喜您完成本次答题</p>
-                    <p>{`完成作答：${finished}道`}</p>
-                    <p>{`正确作答：${correctAns}道`}</p>
-                    <p>{`最终得分：${totalScore}分`}</p>
-                </div>
-                <div className='footer'>
-                    <Button className='print-btn' type='primary' onClick={onPrint}>
-                        <FileDoneOutlined />打印成绩单
-                    </Button>
-                </div>
+                <p>{`完成作答：${finished}道`}</p>
+                <p>{`正确作答：${correctAns}道`}</p>
+                <p>{`最终得分：${totalScore}分`}</p>
+            </div>
+            <div className='footer'>
+                <Button className='print-btn' type='primary' onClick={onPrint}>
+                    <FileDoneOutlined />打印成绩单
+                </Button>
             </div>
         </div>
   );
