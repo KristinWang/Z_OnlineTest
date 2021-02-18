@@ -19,9 +19,9 @@ countDownTime: 30// 半个小时
 countDownTime: 90// 一个半小时
  */
 const questionPickConfig = {
-    'singlePickAmount': 100,
-    'multiPickAmount': 5,
-    'tfPickAmount': 5,
+    'singlePickAmount': 50,
+    'multiPickAmount': 10,
+    'tfPickAmount': 10,
     'countDownTime': 5
 };
 

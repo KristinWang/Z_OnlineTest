@@ -1,12 +1,14 @@
 import { Base64 } from 'js-base64';
 import { USER_LOGIN_URL } from '../constant/URL';
+
+require('./mockdata.js');
 /* use 'dev-mock' command for local development, otherwise, use 'start' command to use
     data from backend while developing, use 'build' command for production */
-if (__MOCK__) {
-    require('./mockdata.js');
-} else {
-    require('whatwg-fetch');
-}
+// if (__MOCK__) {
+//     require('./mockdata.js');
+// } else {
+//     require('whatwg-fetch');
+// }
 
 function getBase64Authorization(loginParam) {
     if (loginParam !== undefined) {

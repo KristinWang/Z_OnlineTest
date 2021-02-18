@@ -13,7 +13,7 @@ const cacheUserInfo = (user) => {
     window.sessionStorage.setItem('userInfo', JSON.stringify(user));
     return {...user};
 };
-// on refresh page, get current user info from cookie to prevent privateRouter cannot show
+// on refresh page, get current user info from local to prevent privateRouter cannot show
 export const getCurrentUser = (token) => {
     let user = {};
     if (!token) {
