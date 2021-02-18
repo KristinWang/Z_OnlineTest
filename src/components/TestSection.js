@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
-import { Radio, Checkbox, Avatar } from 'antd';
+import { Radio, Checkbox, Avatar, Collapse } from 'antd';
 import { testSectionMap } from '../constant/enumTypes';
 import '../styles/TestSection.less';
+
+const { Panel } = Collapse;
 
 export default function TestSection ({qType, questions=[], onChange}) {
     const fullPoint = useMemo(() => {
@@ -16,11 +18,16 @@ export default function TestSection ({qType, questions=[], onChange}) {
     }    
 
     return (
-            <div id={`${qType}-section`} className='test-section'>
-                <div className='section-header'>
-                    <div>{testSectionMap[qType]}</div>
-                    <div className='section-statistic'>{`(共${questions.length}题, 合计${fullPoint}分)`}</div>
-                </div>
+        <Collapse defaultActiveKey={['1']} className='test-section'>
+            <Panel key = '1' 
+                header = {
+                    <div className='section-header'>
+                        <div>{testSectionMap[qType]}</div>
+                        <div className='section-statistic'>{`(共${questions.length}题, 合计${fullPoint}分)`}</div>
+                    </div>
+                }
+            >
+                <div className={`section-content`} >
                     {
                         questions.map((q,idx) => {
                             return (
@@ -63,6 +70,8 @@ export default function TestSection ({qType, questions=[], onChange}) {
                             );
                         })
                     }
-            </div>
+                </div>
+            </Panel>
+        </Collapse>
     );
 }
