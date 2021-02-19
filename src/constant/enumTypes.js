@@ -7,3 +7,5 @@ export const testSectionMap = {
     multiChoice: '多选题',
     tf: '判断题'
 };
+
+export const SYSTITLE = 'XXX药品监督管理局';

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Button } from 'antd';
 import { FileDoneOutlined } from '@ant-design/icons';
 import moment from 'moment';
+import { SYSTITLE } from '../constant/EnumTypes';
 
 import '../styles/TestResult.less';
 window.pdfMake.fonts = {
@@ -38,7 +39,7 @@ export default function TestResult() {
             pageSize: 'A4',
             // pageMargins: [100, 250, 0, 0],
             content: [
-                {text: '全国药品监督管理局在线考试成绩单', style: 'title'},
+                {text: `${SYSTITLE}在线考试成绩单`, style: 'title'},
                 {text: `${totalScore}分`, style: 'score'},
                 {text: `/(${fullPoint}分)`, style: 'fullscore'},
                 {text: `姓名：${user.username}`, style: 'name'},

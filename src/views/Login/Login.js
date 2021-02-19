@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { USER_LOGIN } from '../../constant/ActionTypes';
+import { SYSTITLE } from '../../constant/EnumTypes';
 import LoginForm from './LoginForm';
 import '../../styles/Login.less';
 
@@ -21,7 +22,7 @@ export default function Login() {
             <div className='top-bg'/>
             <div className='login-container'>
                 <div className='login-header'>
-                    <div>全国药品监督管理局在线考试系统</div>
+                    <div>{`${SYSTITLE}在线考试系统`}</div>
                     <div>(试行版)</div>
                 </div>
                     <LoginForm handleLogin={handleLogin}/>

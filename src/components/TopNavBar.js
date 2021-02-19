@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 import { GroupOutlined } from '@ant-design/icons';
 import { userLogout } from '../actions/user';
+import { SYSTITLE } from '../constant/EnumTypes';
+
 import '../styles/TopNavBar.less';
 
 export default function TopNavBar() {
@@ -18,7 +20,7 @@ export default function TopNavBar() {
             <div className='logo'>
                 {/* <GroupOutlined style={{ fontSize: '20px', color: '#1eb1be' }}/> */}
                 <img className='logo-icon' src={require('../resources/logo.png')}/>
-                <label className='logo-text'>全国药品监督管理局在线答题系统</label>
+                <label className='logo-text'>{`${SYSTITLE}在线答题系统`}</label>
             </div>
             <div className='right-btns'>
                 <span>您好: {user.username}</span>

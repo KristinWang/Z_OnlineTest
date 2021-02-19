@@ -95,11 +95,12 @@ module.exports = function(proxy, allowedHost) {
       // it used the same host and port.
       // https://github.com/facebookincubator/create-react-app/issues/2272#issuecomment-302832432
       app.use(noopServiceWorkerMiddleware());
-    },
-    proxy: [{
-          context: ['/api', '/view/output_dir'],
-          target: 'http://192.168.1.218', // 'http://192.168.1.218' 'http://192.168.1.6'
-          changeOrigin: true
-      }]
+    }
+    // ,
+    // proxy: [{
+    //       context: ['/api'],
+    //       target: 'http://192.168.1.218', // 'http://192.168.1.218' 'http://192.168.1.6'
+    //       changeOrigin: true
+    //   }]
   };
 };

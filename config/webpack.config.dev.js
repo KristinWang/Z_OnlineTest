@@ -25,7 +25,6 @@ const publicUrl = '';
 const env = getClientEnvironment(publicUrl);
 function getDefinePluginConfig(env, args) {
     const isMock = !!args.mock;
-    console.log(args);
     return {
         ...env.stringified,
         __MOCK__: JSON.stringify(isMock),

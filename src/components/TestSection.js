@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Radio, Checkbox, Avatar, Collapse } from 'antd';
-import { testSectionMap } from '../constant/enumTypes';
+import { testSectionMap } from '../constant/EnumTypes';
 import '../styles/TestSection.less';
 
 const { Panel } = Collapse;
