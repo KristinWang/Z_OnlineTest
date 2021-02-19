@@ -4,6 +4,7 @@ import { Button } from 'antd';
 import { FileDoneOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import { SYSTITLE } from '../constant/EnumTypes';
+// import bg from '../resources/login-bg.png';
 
 import '../styles/TestResult.less';
 window.pdfMake.fonts = {
@@ -34,17 +35,44 @@ export default function TestResult() {
     },[scoresMap]);
     const onPrint = () => {
         let contentMarginLeft = 200;
-        let scoreMargin = totalScore < 10 ? 58 : (totalScore < 100 ? 68 : 78);
+        let scoreMargin = totalScore < 10 ? 28 : (totalScore < 100 ? 38 : 48);
         const docDefinition = {
             pageSize: 'A4',
             // pageMargins: [100, 250, 0, 0],
             content: [
-                {text: `${SYSTITLE}在线考试成绩单`, style: 'title'},
-                {text: `${totalScore}分`, style: 'score'},
-                {text: `/(${fullPoint}分)`, style: 'fullscore'},
-                {text: `姓名：${user.username}`, style: 'name'},
-                {text: `日期：${moment().format('YYYY/MM/DD')}`, style: 'date'},
-                {text: `身份证号：${user.password}`, style: 'userIdentity'},
+                // {
+			    //     image: bg,
+		        // },
+                {
+                    text: [
+                        `${SYSTITLE}在线考试\n`,
+                        '成绩报告单'
+                    ],
+                    style: 'title'
+                },
+                {
+                    stack:[
+                        `${totalScore}分`,
+                        {text: `/(${fullPoint}分)`, style: 'fullscore'}
+                    ],
+                    style: 'score'
+                },
+                {
+                    text: [
+                        `姓名：${user.username}\n\n`,
+                        `日期：${moment().format('YYYY/MM/DD')}\n\n`,
+                        `身份证号：${user.password}\n\n`
+                    ],
+                    style: 'name'
+                },
+                // {
+                //     text: 
+                //     style: 'date'
+                // },
+                // {
+                //     text: 
+                //     style: 'userIdentity'
+                // }
             ],
             styles: {
                 title: {
@@ -65,7 +93,7 @@ export default function TestResult() {
                 fullscore: {
                     fontSize: 10,
                     font: '方正黑体简体',
-                    margin: [contentMarginLeft + scoreMargin, -14, 0, 0] 
+                    margin: [scoreMargin, -14, 0, 0] 
                 },
                 name: {
                     fontSize: 10,
