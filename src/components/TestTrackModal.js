@@ -3,9 +3,6 @@ import { Button, Modal } from 'antd';
 
 export default function TestTrackModal({testTrack, timeout, visible, onOk, onCancel}) {
 
-
-
-
     return (
         <Modal
             title={timeout ? '答题时间已用尽,您本次作答情况如下' : '您当前作答情况如下'}

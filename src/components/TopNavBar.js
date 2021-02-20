@@ -18,7 +18,6 @@ export default function TopNavBar() {
     return (
         <div className='nav-bar'>
             <div className='logo'>
-                {/* <GroupOutlined style={{ fontSize: '20px', color: '#1eb1be' }}/> */}
                 <img className='logo-icon' src={require('../resources/logo.png')}/>
                 <label className='logo-text'>{`${SYSTITLE}在线答题系统`}</label>
             </div>

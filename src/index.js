@@ -12,9 +12,7 @@ import appReducer from './reducers';
 import { createStore } from 'redux';
 
 // router
-import { Router, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 // app
 import App from './App';
 
@@ -27,12 +25,11 @@ window.store = createStore(
     appReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-window.browserHistory = createBrowserHistory();
 
 // Home UI
 ReactDOM.render((
     <Provider store={window.store}>
-        <Router history={window.browserHistory}>
+        <Router>
             <Route path="/" component={App} />
         </Router>
     </Provider>
