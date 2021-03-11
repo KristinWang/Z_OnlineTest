@@ -39,7 +39,7 @@ export default function CountDownIndicator({ countDownTime, onTimeout }) {
         });
     }, [countDownTime, onTimeout]);
     useEffect(() => {
-        if (!autoExpandFlag && countDown.minutes !== 0 && countDown.minutes <= warningThreshold) {
+        if (!autoExpandFlag && countDown.minutes !== 0 && countDown.minutes < warningThreshold) {
             setAutoExpandFlag(true);
             if (fold) {
                 setFold(false);
@@ -53,7 +53,7 @@ export default function CountDownIndicator({ countDownTime, onTimeout }) {
     },[countDown, autoExpandFlag, fold]);
 
     return (
-        <div className={'count-down-indicator ' + (fold ? 'fold' : '')} 
+        <div className={'count-down-indicator ' + (fold ? 'fold ' : '')  + (autoExpandFlag ? 'warning' : '')} 
             title={fold ? `剩余:${countDown.minutes}分${countDown.seconds}秒(点击查看)` : '点击收起面板,注意关注剩余时间'} 
             onClick={handleClick}>
             <Anchor>   
