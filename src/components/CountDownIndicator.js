@@ -4,7 +4,7 @@ import { Anchor, notification  } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import '../styles/CountDownIndicator.less';
 
-const warningThreshold = 3; 
+const warningThreshold = 5; //分钟
 // countDownTime 单位是分钟
 export default function CountDownIndicator({ countDownTime, onTimeout }) {
     const [countDown, setCountDown] = useState({minutes: 0, seconds: 0});
