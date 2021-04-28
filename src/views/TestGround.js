@@ -59,6 +59,17 @@ export default function TestGround() {
     },[referenceAnswers]);
     const [testTrack, setTestTrack] = useState(updateTestTrack());
    
+    // useEffect(() =>{
+    //     window.onbeforeunload = function(e) {
+    //         // handleFinishTest();
+    //     };
+    //     return () => {
+    //         window.onbeforeunload = function() {
+    //             // remove business handle
+    //         }
+    //     }
+    // },[handleFinishTest]);
+
     useEffect(() => {
         dispatchTestContent({
             type: GET_TEST_CONTENT,
